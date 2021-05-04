@@ -1,19 +1,23 @@
 //import liraries
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, SafeAreaView,StatusBar} from 'react-native';
+import React, {Component, useEffect} from 'react';
+import {View, Text, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// create a component
-const Splash = () => {
+const Splash = ({navigation}) => {
+  useEffect(() => {
+   setTimeout(async () => {
+     navigation.replace("Swiper")
+  }, 3000);
+  },[])
   return (
     <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor={"#2c3e50"}/>
+      <StatusBar backgroundColor={'#2c3e50'} />
       <View style={styles.container}>
         <Text>MyComponent</Text>
       </View>
     </SafeAreaView>
   );
 };
-// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -22,5 +26,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
   },
 });
-//make this component available to the app
 export default Splash;
